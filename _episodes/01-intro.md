@@ -81,7 +81,7 @@ Bash is the default shell on most modern implementations of Unix
 and in most packages that provide Unix-like tools for Windows.
 
 Using Bash or any other shell
-sometimes feels more like programming than like using a mouse.
+sometimes feels more like programming than using a mouse.
 Commands are terse (often only a couple of characters long),
 their names are frequently cryptic,
 and their output is lines of text rather than something visual like a graph.
