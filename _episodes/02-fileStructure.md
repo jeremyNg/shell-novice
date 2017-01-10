@@ -2,7 +2,7 @@
 title: "File structure in linux"
 teaching: 5
 exercises: 0
-question:
+questions:
 - "How is file organized in linux system?"
 objectives:
 - "Explain file structure in Linux system."
@@ -42,6 +42,8 @@ presented below.
 
 ![The file system](../fig/Linux-FileSystem-layout.png)
 
+
+> ## Notice
 > This is a layout from a RedHat system.
 >Depending on the system admin, the operating system and the mission of the UNIX machine, the structure may vary,
 >and directories may be left out or added at will. The names are not even required;
@@ -61,5 +63,5 @@ If we go to the fourth level of the file system, it would look like this:
 
 > ./usr/share/doc
 
-The paths shown here are **absolute path** which start from the root. There is another 
+The paths shown here are **absolute path** which start from the root. There is another
 kind of path canned **relative path**, which we will learn about later.
