@@ -22,7 +22,7 @@ keypoints:
 - "`first | second` is a pipeline: the output of the first command is used as the input to the second."
 - "The best way to use the shell is to use pipes to combine simple single-purpose programs (filters)."
 ---
-
+## Extending basic shell commands 
 Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
 the ease with which it lets us combine existing programs in new ways.
@@ -133,9 +133,9 @@ $ wc -l *.pdb
 We can also use `-w` to get only the number of words,
 or `-c` to get only the number of characters.
 
-Which of these files is shortest?
-It's an easy question to answer when there are only six files,
-but what if there were 6000?
+## Redirection in Linux
+Which of these files is shortest? Its an easy question to answer when there are only six files, but what if there were 6000?
+
 Our first step toward a solution is to run the command:
 
 ~~~
@@ -161,6 +161,7 @@ $ ls lengths.txt
 lengths.txt
 ~~~
 {: .output}
+
 
 We can now send the content of `lengths.txt` to the screen using `cat lengths.txt`.
 `cat` stands for "concatenate":
@@ -257,14 +258,15 @@ the output of `head` must be the file with the fewest lines.
 > the contents of `lengths.txt`.
 {: .callout}
 
-If you think this is confusing,
-you're in good company:
-even once you understand what `wc`, `sort`, and `head` do,
-all those intermediate files make it hard to follow what's going on.
-We can make it easier to understand by running `sort` and `head` together:
+## Chaining shell commands with pipes
+To find the file with the fewest line earlier, we first had used `wc -l` to count the number of lines in each file and stored the results in `length.txt`. We then sorted the length using `sort -n` and wrote the reults to another file `sorted-length.txt` before using `head -n 1` to find extract the first line.  
+
+If you think this is confusing, you're in good company: even once you understand what `wc`, `sort`, and `head` do, all those intermediate files make it hard to follow what's going on.
+
+Instead, we can make it easier to understand by running `sort` and `head` together after writing the output of `wc -l` to `lengths.txt`:
 
 ~~~
-$ sort -n lengths.txt | head -n 1
+$sort -n lengths.txt | head -n 1
 ~~~
 {: .bash}
 
@@ -341,6 +343,7 @@ it creates a new process
 and temporarily sends whatever we type on our keyboard to that process's standard input,
 and whatever the process sends to standard output to the screen.
 
+>## Capturing output from STDOUT and/or STDERR
 Here's what happens when we run `wc -l *.pdb > lengths.txt`.
 The shell starts by telling the computer to create a new process to run the `wc` program.
 Since we've provided some filenames as parameters,
