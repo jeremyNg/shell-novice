@@ -3,7 +3,7 @@ title: "File structure in linux"
 teaching: 5
 exercises: 0
 questions:
-- "How is file organized in linux system?"
+- "How are files organized in linux system?"
 objectives:
 - "Explain file structure in Linux system."
 keypoints:
@@ -12,9 +12,9 @@ keypoints:
 
 ---
 
-## Overview of the Linux file system
+# Overview of the Linux file system
 
-#### General
+## General
 
 A simple description of the UNIX system, also applicable to Linux, is this:
 
@@ -34,11 +34,14 @@ Operating System) for instance. The large branches contain more branches, and th
 branches at the end contain the tree's leaves or normal files. For now we will use this
 image of the tree, but we will find out later why this is not a fully accurate image.
 
-#### How does it look like?
+
+
+## How does it look like?
 
 For convenience, the Linux file system is usually thought of in a tree structure.
 On a standard Linux system you will find the layout generally follows the scheme
 presented below.
+
 
 ![The file system](../fig/Linux-FileSystem-layout.png)
 
@@ -50,7 +53,7 @@ presented below.
 >they are only a convention.
 {: .callout}
 
-#### Path in Linux system
+## Path in Linux system
 
 The tree of the file system starts at the trunk or slash, indicated by a forward slash **"/"**.
 This directory, containing all underlying directories and files, is also called the **root directory** or **"the root"** of the file system.
