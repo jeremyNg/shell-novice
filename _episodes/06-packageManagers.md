@@ -50,6 +50,7 @@ For that reason, an active internet connection is required for `apt-get` to work
 
 ## Searching for packages from software repositories. 
 The APT software repository contains thousands of packages, and package names can sometimes be cryptic. Fortunately, we can search for packages that match a regular expression using the following command:
+
 ~~~
 apt-cache search <pattern>
 ~~~ 
@@ -59,6 +60,7 @@ The output of the search, as with other outputs on **STDOUT**, can be redirected
 
 ## Installing software packages using `apt-get` 
 Installing packages using `apt-get` is simply accomplished using the following
+
 ~~~ 
 $sudo apt-get install <package name>
 ~~~
