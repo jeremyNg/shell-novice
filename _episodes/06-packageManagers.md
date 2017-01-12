@@ -28,7 +28,7 @@ The last method is what most people are familiar with: 'installers' downloaded f
 
 Compilation from source is the most flexible way of installing software packages. This is because the installation can be optimized to the specific platform in use. However, this can sometimes be tedious and be an extremely complex undertaking, especially if the software in question requires a large number of *dependencies*. Compiling from source is particularly tedious for software packages that have extremely complex dependency trees (more below). 
 
->##Dependencies 
+>## Dependencies 
 >
 > Some software packages require the installation of other packages in order to function properly. These 'other packages' are called *dependencies*. In turn, these dependencies might have their own dependencies, giving rise to an extremely complex *dependency tree*. In simpler terms, you can think of dependencies as being similar to the pre-requisites for modules you wish to take in your candidature. This analogy is imperfect though: these 'pre-requisites' are called dependencies because their installation is often non-negotiable. 
 
@@ -53,6 +53,8 @@ The APT software repository contains thousands of packages, and package names ca
 ~~~
 apt-cache search <pattern>
 ~~~ 
+{: .bash}
+
 The output of the search, as with other outputs on **STDOUT**, can be redirected to a text file if desired. 
 
 ## Installing software packages using `apt-get` 
@@ -60,6 +62,7 @@ Installing packages using `apt-get` is simply accomplished using the following
 ~~~ 
 $sudo apt-get install <package name>
 ~~~
+{: .bash}
 
 Note the presence of the command `sudo` preceding the `apt-get` command. `sudo` is the command that is used to run `apt-get` as a **super-user**, which means `apt-get` is run with administrator rights. The use of `sudo` has certain implications, and the absence of *sudo* rights substantially complicates installation of software packages (by design since non-*sudo-ers* are not supposed to be able to do anything that changes the system (below). 
 
