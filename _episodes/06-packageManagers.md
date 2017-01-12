@@ -11,7 +11,8 @@ keypoints:
 - "Package managers are used in Linux systems to simplify the installation of software packages."
 - "Different flavors of Linux might use different package managers. In Ubuntu, the package manager that is used is apt-get."
 - "Superuser rights can be invoked by using `sudo`"
-- "Make" is used to install packages from source when the package is not available via the package manager or if one does not have `sudo` rights. 
+- "Make is used to install packages from source when the package is not available via the package manager or if one does not have `sudo` rights." 
+
 ---
 
 Installing software packages is one of the most important tasks that one will undertake when using any computer. In Windows and Mac OSX, this process is relatively straight-forward: we simply download the installer, double-click, and *viola!*, the software is installed. However, this is not the case with Linux. 
