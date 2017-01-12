@@ -23,7 +23,7 @@ keypoints:
 - "The best way to use the shell is to use pipes to combine simple single-purpose programs (filters)."
 ---
 
-## Extending basic shell commands 
+## Extending basic shell commands
 Now that we know a few basic commands, we can finally look at the shell's most powerful feature: the ease with which it lets us combine existing programs in new ways.
 
 We'll start with a directory called `molecules` that contains six files describing some simple organic molecules. The `.pdb` extension indicates that these files are in Protein Data Bank format,
@@ -103,54 +103,56 @@ $ wc -l *.pdb
 We can also use `-w` to get only the number of words,
 or `-c` to get only the number of characters.
 
-## Redirection in Linux 
-Lets say we want the number of lines in each pdb file to be written into a file `length.txt`. How do we accomplish this, other than us copying and then pasting the output of our `wc -l` command into a new text file we have to create? The answer to this is **redirection**, in which we redirect the output to a specified file (or location). 
+## Redirection in Linux
+Lets say we want the number of lines in each pdb file to be written into a file `length.txt`. How do we accomplish this, other than us copying and then pasting the output of our `wc -l` command into a new text file we have to create? The answer to this is **redirection**, in which we redirect the output to a specified file (or location).
 
-To understand redirection, it is first important to understand what happens when we interact with our computer to run a program. 
+To understand redirection, it is first important to understand what happens when we interact with our computer to run a program.
 
->## Inputs and outputs in Linux 
-> 
+>## Inputs and outputs in Linux
+>
 > Every process has an input channel called **standard input** (or "stdin"). Every process also has a default output channel called **standard output** (or "stdout"), where the results of the process will be redirected to. A third output channel called **standard error** (stderr) also  exists. This channel is typically used for error or diagnostic messages, and it allows a user to pipe the output of one program into another while still receiving error messages in the terminal.
+{: .callout}
 
 The shell is actually just another program. Under normal circumstances, whatever we type on the keyboard is sent to the shell on its standard input, and whatever it produces on standard output is displayed on our screen. When we tell the shell to run a program, it creates a new process and temporarily sends whatever we type on our keyboard to that process's standard input, and whatever the process sends to standard output to the screen.
 
-Instead of having the results of our `wc -l` be directed to our screen via "stdout", we can instead specify that the output be directed elsewhere into another file (in this case, `length.txt`). Redirection is accomplished simply by the following: 
+Instead of having the results of our `wc -l` be directed to our screen via "stdout", we can instead specify that the output be directed elsewhere into another file (in this case, `length.txt`). Redirection is accomplished simply by the following:
 
-~~~ 
-$ wc -l > length.txt
-~~~ 
-{: .bash}, 
-
-As seen in the above command, `>` is the redirection pipe. By default, `>` will redirect STDOUT to the file, and error messages (which goes to STDERR instead of STDOUT) will still show on the screen. However, what if we want to have both STDOUT and STDERR redirected to different files? Four scenarios are presented below: 
-
->## Print STDOUT, write STDERR to a new file
 ~~~
-$ wc -l *.pdb 2> stderr.out 
+$ wc -l > length.txt
+~~~
+{: .bash}
+
+As seen in the above command, `>` is the redirection pipe. By default, `>` will redirect STDOUT to the file, and error messages (which goes to STDERR instead of STDOUT) will still show on the screen. However, what if we want to have both STDOUT and STDERR redirected to different files? Four scenarios are presented below:
+
+> ## Print STDOUT, write STDERR to a new file
+~~~
+$ wc -l *.pdb 2> stderr.out
 ~~~
 {: .bash}
 
 > ## Print STDERR, write STDOUT to a new file
 ~~~
 $ wc -l *.pdb 1>stdout.out
-~~~ 
+~~~
 {: .bash}
-which is also the same as 
+
+> which is also the same as
 ~~~
 $wc -l *.pdb > stdout.out
 ~~~
- {: .bash}
+{: .bash}
 
->## Print STDOUT and STDERR to a new file
+> ## Print STDOUT and STDERR to a new file
 ~~~
 $wc -l *.pdb &>stdout.out
-~~~ 
+~~~
 
->## Print STDOUT and STDERR to different files 
-~~~ 
+> ## Print STDOUT and STDERR to different files
+~~~
 wc -l *.pdb 1>stdout.out 2>stderr.out
-~~~ 
+~~~
 {: .bash}
-As you can see from the above examples, one can control which output stream gets redirected by appending a number before `>`, where 1 refers to `stdout` and 2 refers to `stderr`. 
+> As you can see from the above examples, one can control which output stream gets redirected by appending a number before `>`, where 1 refers to `stdout` and 2 refers to `stderr`.
 
 > ## Redirecting to the same file
 >
@@ -169,9 +171,9 @@ As you can see from the above examples, one can control which output stream gets
 {: .callout}
 
 ## Chaining commands using pipes
-Using `wc -l`, we can see the number of lines in each pdb file. To find which file is the shortest with only 6 files is simple as the entire output can be fitted into a small text file which can be visually scanned very easily. Visual scanning is not feasible if there are 6,000 files. A programmatic approach will be favored. 
+Using `wc -l`, we can see the number of lines in each pdb file. To find which file is the shortest with only 6 files is simple as the entire output can be fitted into a small text file which can be visually scanned very easily. Visual scanning is not feasible if there are 6,000 files. A programmatic approach will be favored.
 
-One can use the `sort` command to sort outputs. For example, we can sort the number of lines in ascending order for each entry in our file `length.txt` and write the sorted list to a new file using the following: 
+One can use the `sort` command to sort outputs. For example, we can sort the number of lines in ascending order for each entry in our file `length.txt` and write the sorted list to a new file using the following:
 
 ~~~
 sort -n length.txt > sorted_length.txt
@@ -179,22 +181,22 @@ sort -n length.txt > sorted_length.txt
 {: .bash}
 
 Then, `head` can be used to print out the first *n* lines of the file, which will correspond with the smallest *n* file. For example, from our file `sorted_length.txt`, we can do `head -n1 sorted_length.txt`, which will print only the first line of the file. The output you should get is
-~~~ 
+~~~
  9  methane.pdb
 ~~~
 {: .output}
 
-So to recap, how did we find the file with the least number of lines? 
+So to recap, how did we find the file with the least number of lines?
 1. Count the number of lines in each pdb file using `wc -l *.pdb` and write the results to `length.txt`
 2. Sort the number of lines in `length.txt` with `sort -n length.txt` and write the results to another file, `sorted_length.txt`
-3. Use `head -n 1 sorted_length.txt` to view the first line, which is the shortest file, and write it to another file, `shortest_length.txt`. 
+3. Use `head -n 1 sorted_length.txt` to view the first line, which is the shortest file, and write it to another file, `shortest_length.txt`.
 
 This approach is problematic because it generates a lot of intermediate files which will eventually become confusing. However, using **pipes** (`|`), we can in fact perform the above-task while generating only one file.  First notice that the output of each step serves as the input for the next step. This is the essence of pipes. We can rewrite the entire wrokflow as such
 ~~~
 wc -l *.pdb|sort -n|head -n 1 >shortest_length.txt
-~~~ 
+~~~
 {: .bash}.
-In the above snippet, the pipe (`|`) tells the shell that we want to use the output of the command on the left as the input to the command on the right. The following figure shows the flow of output from our processes. 
+In the above snippet, the pipe (`|`) tells the shell that we want to use the output of the command on the left as the input to the command on the right. The following figure shows the flow of output from our processes.
 ![Redirects and Pipes](../fig/redirects-and-pipes.png)
 
 This simple idea is why Unix has been so successful.
