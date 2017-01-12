@@ -62,11 +62,11 @@ This directory, containing all underlying directories and files, is also called 
 
 Now the next level of the directories are often preceded by a slash, like this:
 
-> ./home/rick
+> /home/jeremy
 
 If we go to the fourth level of the file system, it would look like this:
 
-> ./usr/share/doc
+> /usr/share/doc
 
 The paths shown here are **absolute path** which start from the root. There is another
 kind of path canned **relative path**, which we will learn about later.
