@@ -12,6 +12,9 @@ keypoints:
 - "Different flavors of Linux might use different package managers. In Ubuntu, the package manager that is used is apt-get."
 - "Superuser rights can be invoked by using `sudo`"
 - "Make is used to install packages from source when the package is not available via the package manager or if one does not have `sudo` rights." 
+objectives:
+- "Be able to install packages using apt-get in Ubuntu." 
+- "Understand what makefile is and how to read them."
 
 ---
 
@@ -28,7 +31,7 @@ The last method is what most people are familiar with: 'installers' downloaded f
 
 Compilation from source is the most flexible way of installing software packages. This is because the installation can be optimized to the specific platform in use. However, this can sometimes be tedious and be an extremely complex undertaking, especially if the software in question requires a large number of *dependencies*. Compiling from source is particularly tedious for software packages that have extremely complex dependency trees (more below). 
 
->##Dependencies 
+>## Dependencies 
 >
 > Some software packages require the installation of other packages in order to function properly. These 'other packages' are called *dependencies*. In turn, these dependencies might have their own dependencies, giving rise to an extremely complex *dependency tree*. In simpler terms, you can think of dependencies as being similar to the pre-requisites for modules you wish to take in your candidature. This analogy is imperfect though: these 'pre-requisites' are called dependencies because their installation is often non-negotiable. 
 
@@ -40,6 +43,7 @@ Installation from package managers represent a compromise between platform compa
 Different flavors of linux uses different package managers, although they are broadly categorized as *RPM*-based or *Debian*-based systems. Our specific distribution, Ubuntu, uses APT as the package manager. The rest of our discussion using package managers will thus be focused on APT, although similar principles applies to other package managers. 
 
 At its core, the following is done when you attempt to install a software package using the APT package manager, `apt-get`: 
+
 1. Connects to the software repository and/or other sources,
 2. Downloads the source file of the package, 
 3. Read the dependency list of the package you are trying to install,
@@ -50,16 +54,21 @@ For that reason, an active internet connection is required for `apt-get` to work
 
 ## Searching for packages from software repositories. 
 The APT software repository contains thousands of packages, and package names can sometimes be cryptic. Fortunately, we can search for packages that match a regular expression using the following command:
+
 ~~~
 apt-cache search <pattern>
 ~~~ 
+{: .bash}
+
 The output of the search, as with other outputs on **STDOUT**, can be redirected to a text file if desired. 
 
 ## Installing software packages using `apt-get` 
 Installing packages using `apt-get` is simply accomplished using the following
+
 ~~~ 
 $sudo apt-get install <package name>
 ~~~
+{: .bash}
 
 Note the presence of the command `sudo` preceding the `apt-get` command. `sudo` is the command that is used to run `apt-get` as a **super-user**, which means `apt-get` is run with administrator rights. The use of `sudo` has certain implications, and the absence of *sudo* rights substantially complicates installation of software packages (by design since non-*sudo-ers* are not supposed to be able to do anything that changes the system (below). 
 
