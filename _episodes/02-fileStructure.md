@@ -6,9 +6,11 @@ questions:
 - "How are files organized in linux system?"
 objectives:
 - "Explain file structure in Linux system."
+- "Introduce different types of files."
 keypoints:
-- "Everything is a file in Linux system."
+- "Generally, everything is a file in Linux system."
 - "Directories in Linux system are organized in tree-like structure."
+- "Different types of files in Linux system."
 
 ---
 
@@ -68,3 +70,16 @@ If we go to the fourth level of the file system, it would look like this:
 
 The paths shown here are **absolute path** which start from the root. There is another
 kind of path canned **relative path**, which we will learn about later.
+
+## Sort of files
+Most files are just files, called regular files; they contain normal data, for example
+text files, executable files or programs, input for or output from a program and so on.
+
+While it is reasonably safe to suppose that everything you encounter on a Linux system is
+a file, there are some **exceptions**.
+
+* *Directories*: files that are lists of other files.
+* *Special files*: the mechanism used for input and output. Most special files are in /dev.
+* *Links*: a system to make a file or directory visible in multiple parts of the system's file tree.
+* *Sockets*: a special file type, similar to TCP/IP sockets, providing inter-process networking protected by the file system's access control.
+* *Named pipes*: act more or less like sockets and form a way for processes to communicate with each other, without using network socket semantics.
