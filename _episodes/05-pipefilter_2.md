@@ -199,6 +199,7 @@ Then, `head` can be used to print out the first *n* lines of the file, which wil
 {: .output}
 
 So to recap, how did we find the file with the least number of lines?
+
 1. Count the number of lines in each pdb file using `wc -l *.pdb` and write the results to `length.txt`
 2. Sort the number of lines in `length.txt` with `sort -n length.txt` and write the results to another file, `sorted_length.txt`
 3. Use `head -n 1 sorted_length.txt` to view the first line, which is the shortest file, and write it to another file, `shortest_length.txt`.
