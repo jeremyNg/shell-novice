@@ -173,7 +173,11 @@ As seen in the above command, `>` is the redirection pipe. By default, `>` will 
 > the contents of `lengths.txt`.
 {: .callout}
 
+
+
+
 ## Chaining commands using pipes
+
 Using `wc -l`, we can see the number of lines in each pdb file. To find which file is the shortest with only 6 files is simple as the entire output can be fitted into a small text file which can be visually scanned very easily. Visual scanning is not feasible if there are 6,000 files. A programmatic approach will be favored.
 
 One can use the `sort` command to sort outputs. For example, we can sort the number of lines in ascending order for each entry in our file `length.txt` and write the sorted list to a new file using the following:
@@ -185,6 +189,7 @@ sort -n length.txt > sorted_length.txt
 
 
 Then, `head` can be used to print out the first *n* lines of the file, which will correspond with the smallest *n* file. For example, from our file `sorted_length.txt`, we can do `head -n1 sorted_length.txt`, which will print only the first line of the file. The output you should get is
+
 ~~~
  9  methane.pdb
 ~~~
@@ -196,10 +201,12 @@ So to recap, how did we find the file with the least number of lines?
 3. Use `head -n 1 sorted_length.txt` to view the first line, which is the shortest file, and write it to another file, `shortest_length.txt`.
 
 This approach is problematic because it generates a lot of intermediate files which will eventually become confusing. However, using **pipes** (`|`), we can in fact perform the above-task while generating only one file.  First notice that the output of each step serves as the input for the next step. This is the essence of pipes. We can rewrite the entire wrokflow as such
+
 ~~~
 wc -l *.pdb|sort -n|head -n 1 >shortest_length.txt
 ~~~
-{: .bash}.
+{: .bash}
+
 In the above snippet, the pipe (`|`) tells the shell that we want to use the output of the command on the left as the input to the command on the right. The following figure shows the flow of output from our processes.
 ![Redirects and Pipes](../fig/redirects-and-pipes.png)
 
