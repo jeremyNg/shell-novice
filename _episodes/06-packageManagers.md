@@ -43,6 +43,7 @@ Installation from package managers represent a compromise between platform compa
 Different flavors of linux uses different package managers, although they are broadly categorized as *RPM*-based or *Debian*-based systems. Our specific distribution, Ubuntu, uses APT as the package manager. The rest of our discussion using package managers will thus be focused on APT, although similar principles applies to other package managers. 
 
 At its core, the following is done when you attempt to install a software package using the APT package manager, `apt-get`: 
+
 1. Connects to the software repository and/or other sources,
 2. Downloads the source file of the package, 
 3. Read the dependency list of the package you are trying to install,
