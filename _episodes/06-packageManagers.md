@@ -12,6 +12,9 @@ keypoints:
 - "Different flavors of Linux might use different package managers. In Ubuntu, the package manager that is used is apt-get."
 - "Superuser rights can be invoked by using `sudo`"
 - "Make is used to install packages from source when the package is not available via the package manager or if one does not have `sudo` rights." 
+objectives:
+- "Be able to install packages using apt-get in Ubuntu." 
+- "Understand what makefile is and how to read them."
 
 ---
 
