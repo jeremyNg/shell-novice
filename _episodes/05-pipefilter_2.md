@@ -125,34 +125,37 @@ $ wc -l > length.txt
 As seen in the above command, `>` is the redirection pipe. By default, `>` will redirect STDOUT to the file, and error messages (which goes to STDERR instead of STDOUT) will still show on the screen. However, what if we want to have both STDOUT and STDERR redirected to different files? Four scenarios are presented below:
 
 > ## Print STDOUT, write STDERR to a new file
-~~~
-$ wc -l *.pdb 2> stderr.out
-~~~
-{: .bash}
-
+> ~~~
+> $ wc -l *.pdb 2> stderr.out
+> ~~~
+> {: .bash}
+>
 > ## Print STDERR, write STDOUT to a new file
-~~~
-$ wc -l *.pdb 1>stdout.out
-~~~
-{: .bash}
-
+> ~~~
+> $ wc -l *.pdb 1>stdout.out
+> ~~~
+> {: .bash}
+>
 > which is also the same as
-~~~
-$wc -l *.pdb > stdout.out
-~~~
-{: .bash}
-
+> ~~~
+> $wc -l *.pdb > stdout.out
+> ~~~
+> {: .bash}
+>
 > ## Print STDOUT and STDERR to a new file
-~~~
-$wc -l *.pdb &>stdout.out
-~~~
-
+> ~~~
+> $wc -l *.pdb &>stdout.out
+> ~~~
+>
 > ## Print STDOUT and STDERR to different files
-~~~
-wc -l *.pdb 1>stdout.out 2>stderr.out
-~~~
-{: .bash}
+> ~~~
+> wc -l *.pdb 1>stdout.out 2>stderr.out
+> ~~~
+> {: .bash}
 > As you can see from the above examples, one can control which output stream gets redirected by appending a number before `>`, where 1 refers to `stdout` and 2 refers to `stderr`.
+
+
+
 
 > ## Redirecting to the same file
 >
@@ -179,6 +182,7 @@ One can use the `sort` command to sort outputs. For example, we can sort the num
 sort -n length.txt > sorted_length.txt
 ~~~
 {: .bash}
+
 
 Then, `head` can be used to print out the first *n* lines of the file, which will correspond with the smallest *n* file. For example, from our file `sorted_length.txt`, we can do `head -n1 sorted_length.txt`, which will print only the first line of the file. The output you should get is
 ~~~
