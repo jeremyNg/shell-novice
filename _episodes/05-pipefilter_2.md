@@ -137,6 +137,7 @@ As seen in the above command, `>` is the redirection pipe. By default, `>` will 
 > {: .bash}
 >
 > which is also the same as
+>
 > ~~~
 > $wc -l *.pdb > stdout.out
 > ~~~
@@ -146,14 +147,16 @@ As seen in the above command, `>` is the redirection pipe. By default, `>` will 
 > ~~~
 > $wc -l *.pdb &>stdout.out
 > ~~~
+> {: .bash}
 >
 > ## Print STDOUT and STDERR to different files
 > ~~~
 > wc -l *.pdb 1>stdout.out 2>stderr.out
 > ~~~
 > {: .bash}
+>
 > As you can see from the above examples, one can control which output stream gets redirected by appending a number before `>`, where 1 refers to `stdout` and 2 refers to `stderr`.
-
+>
 
 
 
