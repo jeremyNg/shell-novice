@@ -69,7 +69,7 @@ If we go to the fourth level of the file system, it would look like this:
 > /usr/share/doc
 
 The paths shown here are **absolute path** which start from the root. There is another
-kind of path canned **relative path**, which we will learn about later.
+kind of path called **relative path**, which we will learn about later.
 
 ## Sort of files
 Most files are just files, called regular files; they contain normal data, for example
