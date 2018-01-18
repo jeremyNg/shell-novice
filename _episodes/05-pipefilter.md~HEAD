@@ -11,9 +11,7 @@ objectives:
 - "Explain what usually happens if a program or pipeline isn't given any input to process."
 - "Explain Unix's 'small pieces, loosely joined' philosophy."
 keypoints:
-- "`cat` displays the contents of its inputs."
 - "`head` displays the first few lines of its input."
-- "`tail` displays the last few lines of its input."
 - "`sort` sorts its inputs."
 - "`wc` counts lines, words, and characters in its inputs."
 - "`*` matches zero or more characters in a filename, so `*.txt` matches all files ending in `.txt`."
